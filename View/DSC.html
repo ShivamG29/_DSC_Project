@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      
+         ::placeholder {
+        text-align: center;
+    }
+
+    .registerForm-color {
+        background-color: #3771C8;
+    }
+
+    .card {
+        max-width: 100rem;
+        border-radius: 15px;
+    }
+
+    .custom-border-color {
+        border-color: #3771C8;
+    }
+
+    .flexbox-container {
+        display: flex;
+        align-items: flex-start;
+        min-height: 900px;
+    }
+
+    .flexbox-item {
+    }
+
+    .flexbox-item-1 {
+        min-width: 18rem;
+        background-color: #91BADF;
+        min-height: 700px;
+        align-self: stretch;
+        flex-shrink: 1;
+    }
+
+    .flexbox-item-2 {
+        min-height: 700px;
+        border-radius: 15px;
+        align-self: flex-start;
+        margin: 2%;
+    }
+
+    .card-body {
+        background-color: #E5E5E5;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .card-header {
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container {
+        margin-top: 40px;
+        margin-left: 30px;
+    }
+
+    .custom-card-flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .swal-height {
+        margin: 10px;
+    }
+
+    .modal-close-btn {
+        display: flex;
+        justify-content: end;
+    }
+
+    .not-valid-border {
+        border-left-color: indianred;
+    }
+
+    .not-valid-indicator {
+        background-color: indianred
+    }
+
+    .uploadOuter {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .dragBox {
+        width: 15rem;
+        height: 10rem;
+        background-color: #91BADF;
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        font-weight: bold;
+        line-height: 95px;
+        color: #999;
+        border: 2px dashed #ccc;
+        display: inline-block;
+        transition: transform 0.3s;
+    }
+
+    #uploadFile {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .innerbox {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    .draging {
+        transform: scale(1.2);
+    }
+
+    #preview {
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .form-control {
+        width: 85%;
+        margin: auto;
+    }
+
+    .form-group {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cutom-margin {
+        margin-left: 10%;
+    }
+
+    .custom-margin-2 {
+        margin-left: 8%;
+    }
+
+    .buttonIn {
+        width: 300px;
+        position: relative;
+    }
+
+    .OtpInput {
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        outline: none;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    .otpBtn {
+        position: absolute;
+        top: 0;
+        border-radius: 5px;
+        right: 0px;
+        z-index: 2;
+        border: none;
+        top: 2px;
+        height: 30px;
+        cursor: pointer;
+        color: white;
+        background-color: #1e90ff;
+        transform: translateX(2px);
+    }
+
+    #mygrp {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid grey;
+        padding: 2px;
+    } .txt1 {
+                
+                margin-bottom: 15px;
+                border: 2px solid #86bf3c;
+                color: #86bf3c;
+                padding-left: 12px;
+                float: left;
+                box-sizing: border-box;
+                border-radius: 60px;
+            }
+
+    #myINput {
+        /* Tell the input to use all the available space */
+        flex-grow: 2;
+        /* And hide the input's outline, so the form looks like the outline */
+        border: none;
+    }
+
+        #myINput:focus {
+            /* removing the input focus blue box. Put this on the form if you like. */
+            outline: none;
+        }
+
+    #mybtn {
+        /* Just a little styling to make it pretty */
+        border: 1px solid blue;
+        background: blue;
+        color: white;
+    }
+
+    .chk-custom {
+        margin: 1% 0% 0% 1%;
+        font-size: 0.8em;
+    }
+
+    .chk-margin {
+        margin: 4% 0% 0% -10%;
+    }
+
+    .chk-custom-2 {
+        font-size: 0.8em;
+        margin: 6% 0% 0% 1%;
+    }
+
+  
+    .commonNoGstGroup, .commonGstGroup, .orgCertiAndPan, .authGroup, .deedGroup, .listPeopleGroup {
+        display: none;
+    }
+ 
+    .colored-toast.swal2-icon-success {
+        background-color: #a5dc86 !important;
+    }
+
+    .colored-toast.swal2-icon-error {
+        background-color: #f27474 !important;
+    }
+
+    .colored-toast.swal2-icon-warning {
+        background-color: #f8bb86 !important;
+    }
+
+    .colored-toast.swal2-icon-info {
+        background-color: #3fc3ee !important;
+    }
+
+    .colored-toast.swal2-icon-question {
+        background-color: #87adbd !important;
+    }
+
+    .colored-toast .swal2-title {
+        color: white;
+    }
+
+    .colored-toast .swal2-close {
+        color: white;
+    }
+
+    .colored-toast .swal2-html-container {
+        color: white;
+    }.eye-slash{
+        transform: translate(250px,-60px);
+    }
+
+    @media (max-width: 1300px) {
+        .flexbox-container {
+            min-width: 30rem;
+            font-size: .7rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <h3 style="text-align:center;color:#3771C8">Apply DSC PAN Based</h3>
+    <h5 style="text-align:center;color:black">Partner Name : Partner Proo (partnerPro@mailinator.com)</h5> 
+    <h5 style="text-align:center;color:black">Person Email : umesh.kushwaha@rannlab.com</h5> 
+    <div class="card" style="align-items: center;">
+    <div class="card-body" style="padding:0px">
+        <div class="text-danger" asp-validation-summery="ModelOnly"></div>
+
+        <div class="flexbox-container w-100 h-100">
+            <div class="flexbox-item flexbox-item-2">
+                <div class="row">
+                    <form action="" method="post" id="applyPanDsc-form" class=" col-12" data-parsley-trigger="input focusout" data-parsley-excluded="input[type=checkbox],input[type=button],input[type=submit],input[type=hidden],[disabled], :hidden">
+                        <div class="login-bg" id="formIdDiv">
+                            <div class="row form-group">
+                                <div class="row col-lg-6">
+                                    <label>Certificate Class</label>
+                                    <select class="form-control custom-border-color col-11 txt1" id="certificateClassList" name="certificateClassList" onchange="getProductQuantity()" required="required"><option value="">Select class</option>
+<option value="">Class III</option>
+</select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="row col-lg-6">
+                                    <label>Certificate Types</label>
+                                    <select class="form-control custom-border-color txt1" id="certiTypeList" name="certiTypeList" onchange="getProductQuantity()" required="required"><option value="">Select Type</option>
+<option value="">Signing</option>
+</select>
+                                </div>
+                                <div class="row col-lg-6">
+                                    <label class="col-12">Certificate Validity</label>
+                                    <select class="form-control custom-border-color txt1" id="validityList" name="validityList" onchange="getProductQuantity()" required="required"><option value="">Select Type</option>
+<option value="">3 Years</option>
+</select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                  <div class="col-lg-6">
+                                    <label class="col-12">Pan No <span class="text-muted">(Individual)</span></label>
+                                    <input required id="pPanNumber" name="Application.PanNumber" class="form-control cutom-margin-2 txt1 custom-border-color" pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}" data-parsley-error-message="Invalid PAN Number" data-parsley-length-message='Invalid PAN' data-parsley-length="[10,10]" type="text" title="PAN No" autocomplete="off" placeholder="PAN Number" style="text-transform:uppercase" />
+                                </div>
+                                <div class="row col-lg-6">
+                                    <label class="col-12">Person Name</label>
+                                    <input required id="pName" pattern="[a-zA-Z][a-zA-Z ]+"  name="Application.PersonName" class="form-control txt1 cutom-margin custom-border-color" data-parsley-error-message="Name is required!" data-parsley-length-message='Invalid name' data-parsley-length="[4,100]" type="text" title="Full Name" autocomplete="off" placeholder="Full Name" />
+                                    <div id="displayPanName" class="chk-custom"></div>
+                                </div>
+                            </div>
+                            <input  id="oName" name="Application.OriginalName" value=""  type="hidden" />
+                            <div class="row form-group">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <label class="col-12">Email ID</label>
+                                        </div>
+                                        <div class="chk-custom form-check col-4">
+                                            <input class="form-check-input txt1" type="checkbox" value="" id="isVerifyEmailLater">
+                                            <b class="text-muted form-check-label col-12" for="isVerifyEmailLater">
+                                                Verify Later
+                                            </b>
+                                        </div>
+                                    </div>
+                                    <input required id="pEmail" name="Application.EmailId" class=" txt1 form-control custom-border-color" pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/" data-parsley-error-message="Invalid Email" data-parsley-length-message='Email is required!' title="Email"  placeholder="Email Address" />
+                                    <div class="btn-group" id="emailBtnGroup">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <label class="col-12">Mobile No</label>
+                                        </div>
+                                        <div class="chk-custom form-check col-4">
+                                            <input class="form-check-input txt1" type="checkbox" value="" id="isVerifyMobileLater">
+                                            <b class="text-muted form-check-label col-12" for="isVerifyMobileLater">
+                                                Verify Later
+                                            </b>
+                                        </div>
+                                    </div>
+                                    <input required id="pMobileNo" name="Application.ContactNo" class="form-control custom-border-color txt1" pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$" data-parsley-error-message="Mobile Number is invalid!" data-parsley-length-message='Invalid Number' mask="99999-99999" data-parsley-length="[10,12]" type="number" title="Mobile Number" autocomplete="on" placeholder="Mobile Number" />
+                                    <div class="btn-group" id="mobileBtnGroup">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-lg-6">
+                                    <label class="col-12">Pincode</label>
+                                    <input required id="pPincode" name="Application.Pincode" class="form-control txt1 custom-border-color" pattern="[1-9]{1}[0-9]{5}|[1-9]{1}[0-9]{3}\\s[0-9]{3}" data-parsley-error-message="Invalid Pincode" data-parsley-length-message='Invalid Pincode' data-parsley-length="[6,6]" type="number" title="Pincode" autocomplete="on" placeholder="District pincode" />
+                                </div>
+                                <div class="row col-lg-6">
+                                    <label class="col-12">City</label>
+                                    <input required id="pCity" name="Application.City" class="form-control txt1 custom-border-color" type="text" title="City Name" autocomplete="on" placeholder="City Name" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-lg-6">
+                                    <label class="col-12">State</label>
+                                    <input required id="pState" name="Application.State" class="form-control txt1 custom-border-color" type="text" title="State" autocomplete="on" placeholder="State" />
+                                </div>
+                                <div class="row col-lg-6">
+                                    <label class="col-5">Address</label>
+                                    <textarea id="pAddress" pattern="^([\w,:\s/-]*)$" name="Application.Address" class="form-control txt1 custom-border-color" type="text" title="Address" autocomplete="on" placeholder="Full Address"></textarea>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="row col-lg-6">
+                                    <label class="col-12">Gender</label>
+                                    <select class="form-control txt1 custom-border-color" id="genderList" name="genderList"><option value="">Select Gender</option>
+<option value="1">Male</option>
+<option value="2">Female</option>
+<option value="3">Other</option>
+</select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="col-12">Date of Birth</label>
+                                    <input data-parsley-minimumage="18" data-parsley-minimumage-message="Applicant must be at least 18 years of age to apply" id="pDateOfBirth" name="Application.BirthDate" class="form-control txt1 custom-border-color" type="date" title="Birth Date" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-lg-6">
+                                    <label class="col-12">Ekyc Id</label>
+                                    <input readonly required id="pEkycId" name="Application.EkycId" class="form-control txt1 custom-border-color" type="text" placeholder="[PanNumber]@prodigisign.in" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="col-12">Ekyc Pin</label>
+                                    <div class="input-group-append pass-show-hide-btn-1 col-10">
+                                        <div class="col-10">
+                                            <input style="width:100%" required id="pEkycPin" autocomplete="new-password" name="Application.EkycPin" pattern="^[0-9]*$" class="form-control txt1 custom-border-color" type="password" title="Pin"  placeholder="Ekyc Pin" data-parsley-length="[5,5]" data-parsley-error-message="Pin should be numbers only" data-parsley-length-message="Pin should have 5 numbers" maxlength="5" />
+                                        </div>
+                                        <div class="input-group-addon eye-slash">
+                                            <a class="btn btn-primary txt1" href=""><i class="fa fa-eye-slash" aria-hidden="true" style="color:white"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-lg-6">
+                                    <label class="col-12">Aadhar last 4 Digits<span class="text-muted">(Optional)</span></label>
+                                    <input id="aAadharNumber" name="Application.AadharNumber" class="form-control custom-border-color txt1" type="number" title="AADHAR" autocomplete="off" placeholder="Aadhar Last 4 Digits" data-parsley-length="[4,4]" maxlength="4" max="9999" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="col-12">Download  Key</label>
+                                    <div class="input-group-append pass-show-hide-btn-2 col-10">
+                                        <div class="col-10">
+                                                    <input style="width:100%" required id="aDownKey" pattern="/^(?=.*[a-z])(?=.*\d)(?=.*)[A-Za-z\d@$!%*#?&]{6,}$/gm" name="Application.DownloadKey" class="txt1 form-control custom-border-color" type="password" title="Key" autocomplete="off" placeholder="Pro123" data-parsley-length="[6,6]" data-parsley-length-message="Key should have 5 characters" maxlength="6" />
+                                        </div>
+                                        <div class="input-group-addon eye-slash ">
+                                            <a class="btn btn-primary txt1" href=""><i class="fa fa-eye-slash" aria-hidden="true" style="color:white"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="docListDiv">
+                            </div>
+                            <div class="row form-group">
+                                <div class="row col-lg-6">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <label class="col-12">Upload Photo</label>
+                                        </div>
+                                        <div class="chk-custom form-check col-4">
+                                            <input class="form-check-input txt1" type="checkbox" value="" id="isApplicantPhoto">
+                                            <b class="text-muted form-check-label col-12" for="isApplicantPhoto">
+                                                Maybe Later
+                                            </b>
+                                        </div>
+                                    </div>
+                                    <div class="dragBox col-11">
+                                        <div class="innerbox">
+                                            <img style=" max-width: 20%; max-height: 20%;" src="https://th.bing.com/th/id/R.7d175e02479c6d8044f9345fdb606826?rik=oegbN1uLvI%2bVfQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2%2fUpload-PNG-Images.png&ehk=9mgYz1XyK%2buIxhRlGRwWZKTd1vdvcd1VOvlYdU459Ng%3d&risl=&pid=ImgRaw&r=0" />
+                                            <label style="color:white;height:20%">Drag & Drop File</label>
+                                            <label style="color:white;display:block;height:20%">OR Click Box to Browse File</label>
+                                        </div>
+                                        <div id="preview"></div>
+                                        <input required type="file" onChange="dragNdrop(event)" name="aApplicantPhoto" ondragover="drag()" ondrop="drop()" id="uploadFile" />
+                                    </div>
+                                </div>
+                                <div class="row col-lg-6">
+                                    <label class="col-12">Remark</label>
+                                    <textarea id="aRemark" name="Application.Remark" class="form-control custom-border-color col-12" type="text" title="Address" autocomplete="on" placeholder="Remark" style="height:10rem;min-height:80%"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="login-button-pro">
+                                        <input type="submit" id="registerBtn" class="btn btn-success w-100" value="Proceed">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                
+</body>
+</html>
